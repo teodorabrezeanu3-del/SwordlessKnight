@@ -1,0 +1,360 @@
+[gd_scene format=3 uid="uid://bsnxcjkoxcjhr"]
+
+[ext_resource type="PackedScene" uid="uid://vkjfmwt4hgre" path="res://scenes/player.tscn" id="1_h23n6"]
+[ext_resource type="Texture2D" uid="uid://cak8j8eenagkp" path="res://assets/totally and surelly not claude/SkylandsBackground.png" id="2_uwxec"]
+[ext_resource type="Texture2D" uid="uid://bl1ctqnqb18do" path="res://assets/1 Tiles/IndustrialTile_43.png" id="3_hhfj6"]
+[ext_resource type="Texture2D" uid="uid://f6ahatpabo8r" path="res://assets/1 Tiles/IndustrialTile_42.png" id="4_wae8j"]
+[ext_resource type="Script" uid="uid://d4dinv0clhj80" path="res://scenes/turret.gd" id="5_ha73p"]
+[ext_resource type="PackedScene" uid="uid://d1mnhprcnfd8w" path="res://scenes/bomb.tscn" id="6_vcx5n"]
+[ext_resource type="Texture2D" uid="uid://bb5r5dk5sjrmt" path="res://assets/PNG/Cannon_main.png" id="7_56dhn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1pn4d"]
+size = Vector2(573.75, 65.25)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ax3dk"]
+texture = ExtResource("3_hhfj6")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q2dsb"]
+texture = ExtResource("4_wae8j")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_fr4y1"]
+sources/1 = SubResource("TileSetAtlasSource_ax3dk")
+sources/2 = SubResource("TileSetAtlasSource_q2dsb")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3sih"]
+atlas = ExtResource("7_56dhn")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2y5yt"]
+atlas = ExtResource("7_56dhn")
+region = Rect2(96, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2os1m"]
+atlas = ExtResource("7_56dhn")
+region = Rect2(96, 128, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_go7sj"]
+atlas = ExtResource("7_56dhn")
+region = Rect2(96, 192, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gny6"]
+atlas = ExtResource("7_56dhn")
+region = Rect2(96, 256, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2aecg"]
+atlas = ExtResource("7_56dhn")
+region = Rect2(96, 320, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dial"]
+atlas = ExtResource("7_56dhn")
+region = Rect2(96, 384, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nomh"]
+atlas = ExtResource("7_56dhn")
+region = Rect2(96, 448, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1s4pk"]
+atlas = ExtResource("7_56dhn")
+region = Rect2(96, 512, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2xxo"]
+atlas = ExtResource("7_56dhn")
+region = Rect2(96, 576, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p3r0x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3sih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2y5yt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2os1m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_go7sj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gny6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2aecg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dial")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7nomh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1s4pk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2xxo")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xqnf"]
+size = Vector2(109, 50)
+
+[node name="Node2D" type="Node2D" unique_id=537561145]
+
+[node name="Player" parent="." unique_id=1251509618 instance=ExtResource("1_h23n6")]
+visibility_layer = 2
+position = Vector2(241, 454)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=141144721]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1740311860]
+offset_left = -156.0
+offset_top = 9.0
+offset_right = 1981.0
+offset_bottom = 1078.0
+texture = ExtResource("2_uwxec")
+
+[node name="PlatformA" type="StaticBody2D" parent="CanvasLayer/TextureRect" unique_id=1342779521]
+visibility_layer = 2
+position = Vector2(660, 390)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/TextureRect/PlatformA" unique_id=1454593860]
+visibility_layer = 2
+position = Vector2(-109, 225)
+shape = SubResource("RectangleShape2D_1pn4d")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/TextureRect/PlatformA" unique_id=97145670]
+visibility_layer = 2
+
+[node name="PlatformA" type="StaticBody2D" parent="." unique_id=1696100657]
+visibility_layer = 2
+position = Vector2(660, 390)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformA" unique_id=904243340]
+visibility_layer = 2
+position = Vector2(-844, 167)
+shape = SubResource("RectangleShape2D_1pn4d")
+
+[node name="Sprite2D" type="Sprite2D" parent="PlatformA" unique_id=873944295]
+visibility_layer = 2
+
+[node name="PlatformA2" type="StaticBody2D" parent="." unique_id=1413508748]
+visibility_layer = 2
+position = Vector2(660, 390)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformA2" unique_id=1451320426]
+visibility_layer = 2
+position = Vector2(-845, 94)
+shape = SubResource("RectangleShape2D_1pn4d")
+
+[node name="PlatformA" type="StaticBody2D" parent="PlatformA2/CollisionShape2D" unique_id=1609254999]
+visibility_layer = 2
+position = Vector2(660, 390)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformA2/CollisionShape2D/PlatformA" unique_id=453176410]
+visibility_layer = 2
+position = Vector2(493, -313)
+shape = SubResource("RectangleShape2D_1pn4d")
+
+[node name="PlatformA" type="StaticBody2D" parent="PlatformA2/CollisionShape2D/PlatformA/CollisionShape2D" unique_id=952742968]
+visibility_layer = 2
+position = Vector2(660, 390)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformA2/CollisionShape2D/PlatformA/CollisionShape2D/PlatformA" unique_id=95317713]
+visibility_layer = 2
+position = Vector2(-662, -453)
+shape = SubResource("RectangleShape2D_1pn4d")
+
+[node name="PlatformA" type="StaticBody2D" parent="PlatformA2/CollisionShape2D/PlatformA/CollisionShape2D/PlatformA/CollisionShape2D" unique_id=3391408]
+visibility_layer = 2
+position = Vector2(660, 390)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformA2/CollisionShape2D/PlatformA/CollisionShape2D/PlatformA/CollisionShape2D/PlatformA" unique_id=2056185938]
+visibility_layer = 2
+position = Vector2(-637, -458)
+shape = SubResource("RectangleShape2D_1pn4d")
+
+[node name="PlatformA" type="StaticBody2D" parent="PlatformA2/CollisionShape2D/PlatformA/CollisionShape2D/PlatformA/CollisionShape2D/PlatformA/CollisionShape2D" unique_id=1855611611]
+visibility_layer = 2
+position = Vector2(660, 390)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformA2/CollisionShape2D/PlatformA/CollisionShape2D/PlatformA/CollisionShape2D/PlatformA/CollisionShape2D/PlatformA" unique_id=1609754238]
+visibility_layer = 2
+position = Vector2(-1835, -406)
+shape = SubResource("RectangleShape2D_1pn4d")
+
+[node name="Sprite2D" type="Sprite2D" parent="PlatformA2/CollisionShape2D/PlatformA/CollisionShape2D/PlatformA/CollisionShape2D/PlatformA/CollisionShape2D/PlatformA" unique_id=174444619]
+visibility_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="PlatformA2/CollisionShape2D/PlatformA/CollisionShape2D/PlatformA/CollisionShape2D/PlatformA" unique_id=1082704000]
+visibility_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="PlatformA2/CollisionShape2D/PlatformA/CollisionShape2D/PlatformA" unique_id=324865980]
+visibility_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="PlatformA2/CollisionShape2D/PlatformA" unique_id=467393504]
+visibility_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="PlatformA2" unique_id=498230125]
+visibility_layer = 2
+
+[node name="TileMap" type="TileMap" parent="." unique_id=1105267463]
+tile_set = SubResource("TileSet_fr4y1")
+format = 2
+layer_0/tile_data = PackedInt32Array(2359301, 1, 0, 2424837, 1, 1, 2359302, 65537, 0, 2424838, 65537, 1, 2359339, 65537, 1610612737, 2424875, 1, 1610612737, 2359338, 65538, 1610612737, 2424874, 2, 1610612737, 2359304, 65538, 1610612737, 2424840, 2, 1610612737, 2359303, 65538, 1610612736, 2424839, 2, 1610612736, 2359306, 65538, 1610612737, 2424842, 2, 1610612737, 2359305, 65538, 1610612736, 2424841, 2, 1610612736, 2359308, 65538, 1610612737, 2424844, 2, 1610612737, 2359307, 65538, 1610612736, 2424843, 2, 1610612736, 2359310, 65538, 1610612737, 2424846, 2, 1610612737, 2359309, 65538, 1610612736, 2424845, 2, 1610612736, 2359312, 65538, 1610612737, 2424848, 2, 1610612737, 2359311, 65538, 1610612736, 2424847, 2, 1610612736, 2359314, 65538, 1610612737, 2424850, 2, 1610612737, 2359313, 65538, 1610612736, 2424849, 2, 1610612736, 2359316, 65538, 1610612737, 2424852, 2, 1610612737, 2359315, 65538, 1610612736, 2424851, 2, 1610612736, 2359318, 65538, 1610612737, 2424854, 2, 1610612737, 2359317, 65538, 1610612736, 2424853, 2, 1610612736, 2359320, 65538, 1610612737, 2424856, 2, 1610612737, 2359319, 65538, 1610612736, 2424855, 2, 1610612736, 2359322, 65538, 1610612737, 2424858, 2, 1610612737, 2359321, 65538, 1610612736, 2424857, 2, 1610612736, 2359324, 65538, 1610612737, 2424860, 2, 1610612737, 2359323, 65538, 1610612736, 2424859, 2, 1610612736, 2359326, 65538, 1610612737, 2424862, 2, 1610612737, 2359325, 65538, 1610612736, 2424861, 2, 1610612736, 2359328, 65538, 1610612737, 2424864, 2, 1610612737, 2359327, 65538, 1610612736, 2424863, 2, 1610612736, 2359330, 65538, 1610612737, 2424866, 2, 1610612737, 2359329, 65538, 1610612736, 2424865, 2, 1610612736, 2359332, 65538, 1610612737, 2424868, 2, 1610612737, 2359331, 65538, 1610612736, 2424867, 2, 1610612736, 2359334, 65538, 1610612737, 2424870, 2, 1610612737, 2359333, 65538, 1610612736, 2424869, 2, 1610612736, 2359336, 65538, 1610612737, 2424872, 2, 1610612737, 2359335, 65538, 1610612736, 2424871, 2, 1610612736, 2359337, 65538, 1610612736, 2424873, 2, 1610612736, 2228230, 65538, 0, 2293766, 65538, 1, 2228229, 2, 0, 2293765, 2, 1, 2097158, 65538, 0, 2162694, 65538, 1, 2097157, 2, 0, 2162693, 2, 1, 1966086, 65538, 0, 2031622, 65538, 1, 1966085, 2, 0, 2031621, 2, 1, 1835014, 65538, 0, 1900550, 65538, 1, 1835013, 2, 0, 1900549, 2, 1, 1703942, 65538, 0, 1769478, 65538, 1, 1703941, 2, 0, 1769477, 2, 1, 2228267, 2, 805306369, 2293803, 2, 805306368, 2228266, 65538, 805306369, 2293802, 65538, 805306368, 2097195, 2, 805306369, 2162731, 2, 805306368, 2097194, 65538, 805306369, 2162730, 65538, 805306368, 1966123, 2, 805306369, 2031659, 2, 805306368, 1966122, 65538, 805306369, 2031658, 65538, 805306368, 1835051, 2, 805306369, 1900587, 2, 805306368, 1835050, 65538, 805306369, 1900586, 65538, 805306368, 1703979, 2, 805306369, 1769515, 2, 805306368, 1703978, 65538, 805306369, 1769514, 65538, 805306368, 1572869, 1, 805306369, 1638405, 1, 805306368, 1572868, 65537, 805306369, 1638404, 65537, 805306368, 1572908, 1, 1342177280, 1638444, 65537, 1342177280, 1572907, 1, 1342177281, 1638443, 65537, 1342177281, 1572867, 2, 1342177280, 1638403, 65538, 1342177280, 1572866, 2, 1342177281, 1638402, 65538, 1342177281, 1572865, 2, 1342177280, 1638401, 65538, 1342177280, 1572864, 2, 1342177281, 1638400, 65538, 1342177281, 1638399, 2, 1342177280, 1703935, 65538, 1342177280, 1638398, 2, 1342177281, 1703934, 65538, 1342177281, 1638397, 2, 1342177280, 1703933, 65538, 1342177280, 1638396, 2, 1342177281, 1703932, 65538, 1342177281, 1638395, 2, 1342177280, 1703931, 65538, 1342177280, 1638394, 2, 1342177281, 1703930, 65538, 1342177281, 1638393, 2, 1342177280, 1703929, 65538, 1342177280, 1638392, 2, 1342177281, 1703928, 65538, 1342177281, 1638391, 2, 1342177280, 1703927, 65538, 1342177280, 1638390, 2, 1342177281, 1703926, 65538, 1342177281, 1572910, 2, 1342177280, 1638446, 65538, 1342177280, 1572909, 2, 1342177281, 1638445, 65538, 1342177281, 1572912, 2, 1342177280, 1638448, 65538, 1342177280, 1572911, 2, 1342177281, 1638447, 65538, 1342177281, 1572914, 2, 1342177280, 1638450, 65538, 1342177280, 1572913, 2, 1342177281, 1638449, 65538, 1342177281, 1572916, 2, 1342177280, 1638452, 65538, 1342177280, 1572915, 2, 1342177281, 1638451, 65538, 1342177281, 1572918, 2, 1342177280, 1638454, 65538, 1342177280, 1572917, 2, 1342177281, 1638453, 65538, 1342177281, 1572920, 2, 1342177280, 1638456, 65538, 1342177280, 1572919, 2, 1342177281, 1638455, 65538, 1342177281, 1572922, 2, 1342177280, 1638458, 65538, 1342177280, 1572921, 2, 1342177281, 1638457, 65538, 1342177281, 1572924, 2, 1342177280, 1638460, 65538, 1342177280, 1572923, 2, 1342177281, 1638459, 65538, 1342177281)
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="." unique_id=875542646]
+offset_left = 156.0
+offset_top = 102.0
+offset_right = 604.0
+offset_bottom = 254.0
+bbcode_enabled = true
+text = "[center][font_size=50][color=#11111]YOU FINSIHED THE DEMO ![/color][/font_size][/center]"
+
+[node name="Turret" type="Node2D" parent="RichTextLabel3" unique_id=1255832662]
+visibility_layer = 2
+position = Vector2(120, 600)
+script = ExtResource("5_ha73p")
+bomb_scene = ExtResource("6_vcx5n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RichTextLabel3/Turret" unique_id=260575754]
+visibility_layer = 2
+position = Vector2(-52.74999, -16.249998)
+scale = Vector2(4.2968745, 3.9609377)
+sprite_frames = SubResource("SpriteFrames_p3r0x")
+animation = &"idle"
+
+[node name="Muzzle" type="Marker2D" parent="RichTextLabel3/Turret" unique_id=1018428029]
+visibility_layer = 2
+position = Vector2(-94, -494)
+
+[node name="Turret" type="Node2D" parent="RichTextLabel3/Turret/Muzzle" unique_id=619939554]
+visibility_layer = 2
+position = Vector2(120, 600)
+script = ExtResource("5_ha73p")
+bomb_scene = ExtResource("6_vcx5n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RichTextLabel3/Turret/Muzzle/Turret" unique_id=999795610]
+visibility_layer = 2
+position = Vector2(-52.74999, -16.249998)
+scale = Vector2(4.2968745, 3.9609377)
+sprite_frames = SubResource("SpriteFrames_p3r0x")
+animation = &"idle"
+
+[node name="Muzzle" type="Marker2D" parent="RichTextLabel3/Turret/Muzzle/Turret" unique_id=1657486685]
+visibility_layer = 2
+position = Vector2(-21, -603)
+
+[node name="Turret" type="Node2D" parent="RichTextLabel3/Turret/Muzzle/Turret/Muzzle" unique_id=180522941]
+visibility_layer = 2
+position = Vector2(120, 600)
+script = ExtResource("5_ha73p")
+bomb_scene = ExtResource("6_vcx5n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RichTextLabel3/Turret/Muzzle/Turret/Muzzle/Turret" unique_id=1372677046]
+visibility_layer = 2
+position = Vector2(-52.74999, -16.249998)
+scale = Vector2(4.2968745, 3.9609377)
+sprite_frames = SubResource("SpriteFrames_p3r0x")
+animation = &"idle"
+
+[node name="Muzzle" type="Marker2D" parent="RichTextLabel3/Turret/Muzzle/Turret/Muzzle/Turret" unique_id=1898145995]
+visibility_layer = 2
+position = Vector2(22, -41)
+
+[node name="Shield" type="StaticBody2D" parent="RichTextLabel3/Turret/Muzzle/Turret/Muzzle/Turret" unique_id=707961283]
+visibility_layer = 2
+position = Vector2(0, -70)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RichTextLabel3/Turret/Muzzle/Turret/Muzzle/Turret/Shield" unique_id=111255139]
+visibility_layer = 2
+position = Vector2(-46.5, 38)
+shape = SubResource("RectangleShape2D_5xqnf")
+
+[node name="Sprite2D" type="Sprite2D" parent="RichTextLabel3/Turret/Muzzle/Turret/Muzzle/Turret/Shield" unique_id=1037747855]
+visibility_layer = 2
+
+[node name="Timer" type="Timer" parent="RichTextLabel3/Turret/Muzzle/Turret/Muzzle/Turret" unique_id=1700256676]
+
+[node name="Shield" type="StaticBody2D" parent="RichTextLabel3/Turret/Muzzle/Turret" unique_id=1912050860]
+visibility_layer = 2
+position = Vector2(0, -70)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RichTextLabel3/Turret/Muzzle/Turret/Shield" unique_id=1689674544]
+visibility_layer = 2
+position = Vector2(-46.5, 38)
+shape = SubResource("RectangleShape2D_5xqnf")
+
+[node name="Turret" type="Node2D" parent="RichTextLabel3/Turret/Muzzle/Turret/Shield/CollisionShape2D" unique_id=1011132911]
+visibility_layer = 2
+position = Vector2(120, 600)
+script = ExtResource("5_ha73p")
+bomb_scene = ExtResource("6_vcx5n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RichTextLabel3/Turret/Muzzle/Turret/Shield/CollisionShape2D/Turret" unique_id=519013331]
+visibility_layer = 2
+position = Vector2(-52.74999, -16.249998)
+scale = Vector2(4.2968745, 3.9609377)
+sprite_frames = SubResource("SpriteFrames_p3r0x")
+animation = &"idle"
+
+[node name="Muzzle" type="Marker2D" parent="RichTextLabel3/Turret/Muzzle/Turret/Shield/CollisionShape2D/Turret" unique_id=344238066]
+visibility_layer = 2
+position = Vector2(39.5, -1149)
+
+[node name="Muzzle" type="Marker2D" parent="RichTextLabel3/Turret/Muzzle/Turret/Shield/CollisionShape2D/Turret/Muzzle" unique_id=1266710910]
+visibility_layer = 2
+position = Vector2(-23, 120)
+
+[node name="Muzzle" type="Marker2D" parent="RichTextLabel3/Turret/Muzzle/Turret/Shield/CollisionShape2D/Turret/Muzzle/Muzzle" unique_id=267779010]
+visibility_layer = 2
+position = Vector2(-13, 36)
+
+[node name="Shield" type="StaticBody2D" parent="RichTextLabel3/Turret/Muzzle/Turret/Shield/CollisionShape2D/Turret" unique_id=2101271734]
+visibility_layer = 2
+position = Vector2(0, -70)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RichTextLabel3/Turret/Muzzle/Turret/Shield/CollisionShape2D/Turret/Shield" unique_id=1592578487]
+visibility_layer = 2
+position = Vector2(-46.5, 38)
+shape = SubResource("RectangleShape2D_5xqnf")
+
+[node name="Sprite2D" type="Sprite2D" parent="RichTextLabel3/Turret/Muzzle/Turret/Shield/CollisionShape2D/Turret/Shield" unique_id=834239669]
+visibility_layer = 2
+
+[node name="Timer" type="Timer" parent="RichTextLabel3/Turret/Muzzle/Turret/Shield/CollisionShape2D/Turret" unique_id=1158177102]
+
+[node name="Sprite2D" type="Sprite2D" parent="RichTextLabel3/Turret/Muzzle/Turret/Shield" unique_id=1685469184]
+visibility_layer = 2
+
+[node name="Timer" type="Timer" parent="RichTextLabel3/Turret/Muzzle/Turret" unique_id=1923400661]
+
+[node name="Shield" type="StaticBody2D" parent="RichTextLabel3/Turret" unique_id=1215177041]
+visibility_layer = 2
+position = Vector2(0, -70)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RichTextLabel3/Turret/Shield" unique_id=1457947154]
+visibility_layer = 2
+position = Vector2(-46.5, 38)
+shape = SubResource("RectangleShape2D_5xqnf")
+
+[node name="Sprite2D" type="Sprite2D" parent="RichTextLabel3/Turret/Shield" unique_id=1808425409]
+visibility_layer = 2
+
+[node name="Timer" type="Timer" parent="RichTextLabel3/Turret" unique_id=294828909]
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=1463207428]
+visibility_layer = 2
+position = Vector2(239, 393)

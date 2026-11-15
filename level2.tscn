@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cwwu4rl5lhgfg"]
+
+[ext_resource type="PackedScene" uid="uid://vkjfmwt4hgre" path="res://scenes/player.tscn" id="1_y0xe8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r40rm"]
+size = Vector2(1293.5, 110)
+
+[node name="Level2" type="Node2D" unique_id=2073011513]
+
+[node name="PlatformA" type="StaticBody2D" parent="." unique_id=810307198]
+visibility_layer = 2
+position = Vector2(660, 390)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformA" unique_id=838977380]
+visibility_layer = 2
+position = Vector2(-642, 214)
+shape = SubResource("RectangleShape2D_r40rm")
+
+[node name="Sprite2D" type="Sprite2D" parent="PlatformA" unique_id=2112981078]
+visibility_layer = 2
+
+[node name="Player" parent="." unique_id=1251509618 instance=ExtResource("1_y0xe8")]
+visibility_layer = 2
+position = Vector2(241, 454)
+
+[node name="PlatformA2" type="StaticBody2D" parent="." unique_id=1014637309]
+visibility_layer = 2
+position = Vector2(2073, 390)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformA2" unique_id=1337271152]
+visibility_layer = 2
+position = Vector2(-600, 227)
+shape = SubResource("RectangleShape2D_r40rm")
+
+[node name="Sprite2D" type="Sprite2D" parent="PlatformA2" unique_id=17013481]
+visibility_layer = 2
